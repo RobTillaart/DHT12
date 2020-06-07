@@ -3,14 +3,14 @@
 //    FILE: DHT12.h
 //  AUTHOR: Rob Tillaart
 // PURPOSE: DHT_I2C library for Arduino .
-// VERSION: 0.2.0
+// VERSION: 0.2.1
 // HISTORY: See DHT12.cpp
 //     URL: https://github.com/RobTillaart/DHT12
 //
 
 #include <Wire.h>
 
-#define DHT12_LIB_VERSION "0.2.0"
+#define DHT12_LIB_VERSION "0.2.1"
 
 #define DHT12_OK               0
 #define DHT12_ERROR_CHECKSUM  -10

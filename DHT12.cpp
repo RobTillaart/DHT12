@@ -10,6 +10,7 @@
 //                     Verified by Viktor Balint
 //   0.1.2: 2018-09-02 fix negative temperature DHT12 - issue #111
 //   0.2.0  2020-04-11 explicit constructors, select other Wire interface, #pragma once
+//   0.2.1  2020-06-07 fix library.json
 //
 
 #include <DHT12.h>

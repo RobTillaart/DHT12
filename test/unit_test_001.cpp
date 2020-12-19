@@ -42,7 +42,7 @@ unittest_teardown()
 
 unittest(test_constructor)
 {
-  DHT12 DHT(Wire);
+  DHT12 DHT(&Wire);
   
   fprintf(stderr, DHT12_LIB_VERSION);
 
@@ -63,7 +63,7 @@ unittest(test_constructor)
 
 unittest(test_offset)
 {
-  DHT12 DHT(Wire);
+  DHT12 DHT(&Wire);
   DHT.begin();
   
   assertEqualFloat(0, DHT.getTempOffset(), 0.001);

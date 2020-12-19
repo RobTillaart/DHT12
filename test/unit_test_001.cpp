@@ -45,18 +45,18 @@ unittest(test_constructor)
   DHT12 DHT;
   fprintf(stderr, DHT12_LIB_VERSION);
 
-  assertEqualFLoat(0, DHT.getTemperature(), 0.001);
-  assertEqualFLoat(0, DHT.getHumidity(), 0.001);
-  assertEqualFLoat(0, DHT.getTempOffset(), 0.001);
-  assertEqualFLoat(0, DHT.getHumOffset(), 0.001);
+  assertEqualFloat(0, DHT.getTemperature(), 0.001);
+  assertEqualFloat(0, DHT.getHumidity(), 0.001);
+  assertEqualFloat(0, DHT.getTempOffset(), 0.001);
+  assertEqualFloat(0, DHT.getHumOffset(), 0.001);
 
   DHT.begin();
   assertEqual(0, DHT.read());
 
-  assertEqualFLoat(0, DHT.getTemperature(), 0.001);
-  assertEqualFLoat(0, DHT.getHumidity(), 0.001);
-  assertEqualFLoat(0, DHT.getTempOffset(), 0.001);
-  assertEqualFLoat(0, DHT.getHumOffset(), 0.001);
+  assertEqualFloat(0, DHT.getTemperature(), 0.001);
+  assertEqualFloat(0, DHT.getHumidity(), 0.001);
+  assertEqualFloat(0, DHT.getTempOffset(), 0.001);
+  assertEqualFloat(0, DHT.getHumOffset(), 0.001);
 }
 
 

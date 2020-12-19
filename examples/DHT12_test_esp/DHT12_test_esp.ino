@@ -1,7 +1,7 @@
 //
 //    FILE: DHT12_test_esp.ino
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.3.0
 // PURPOSE: Demo for DHT12 I2C humidity & temperature sensor
 //
 // HISTORY:
@@ -64,6 +64,5 @@ void loop()
 
   delay(2000);
 }
-
 
 // -- END OF FILE --

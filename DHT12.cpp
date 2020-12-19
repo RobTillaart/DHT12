@@ -15,6 +15,7 @@
 //                      temperature and humidity made private
 //
 
+#include "Wire.h"
 #include "DHT12.h"
 
 #define DHT12_ADDRESS   ((uint8_t)0x5C)
@@ -22,7 +23,7 @@
 
 DHT12::DHT12()
 {
-  DHT12(&Wire);
+  DHT12(Wire);
 }
 
 

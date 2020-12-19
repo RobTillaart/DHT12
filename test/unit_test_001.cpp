@@ -65,19 +65,19 @@ unittest(test_offset)
   DHT12 DHT;
   DHT.begin();
   
-  assertEqualFLoat(0, DHT.getTempOffset(), 0.001);
-  assertEqualFLoat(0, DHT.getHumOffset(), 0.001);
+  assertEqualFloat(0, DHT.getTempOffset(), 0.001);
+  assertEqualFloat(0, DHT.getHumOffset(), 0.001);
 
   for (float offset = -1.5; offset < 1.5; offset += 0.5)
   {
     DHT.setHumOffset(offset);
     DHT.setTempOffset(offset);
 
-    assertEqualFLoat(offset, DHT.getTempOffset(), 0.001);
-    assertEqualFLoat(offset, DHT.getHumOffset(), 0.001);
+    assertEqualFloat(offset, DHT.getTempOffset(), 0.001);
+    assertEqualFloat(offset, DHT.getHumOffset(), 0.001);
 
-    assertEqualFLoat(offset, DHT.getTemperature(), 0.001);
-    assertEqualFLoat(offset, DHT.getHumidity(), 0.001);
+    assertEqualFloat(offset, DHT.getTemperature(), 0.001);
+    assertEqualFloat(offset, DHT.getHumidity(), 0.001);
   }
 }
 

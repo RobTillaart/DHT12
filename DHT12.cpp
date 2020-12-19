@@ -23,7 +23,7 @@
 
 DHT12::DHT12()
 {
-  DHT12(&Wire);
+  DHT12(Wire);
 }
 
 

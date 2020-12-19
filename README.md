@@ -20,7 +20,6 @@ Calling these latter again will return the same values until a new **read()** is
 ## Interface
 
 ### Constructor
-- **DHT12()** constructor, using standard Wire (I2C bus). 
 - **DHT12(TwoWire \*wire)** constructor, using a specific Wire (I2C bus).
 - **begin(dataPin, clockPin)** begin for ESP32 et al, to set I2C bus pins
 - **begin()** initializer for non ESP32.

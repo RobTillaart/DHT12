@@ -42,7 +42,7 @@ unittest_teardown()
 
 unittest(test_constructor)
 {
-  DHT12 DHT;
+  DHT12 DHT(&Wire);
   
   fprintf(stderr, DHT12_LIB_VERSION);
 

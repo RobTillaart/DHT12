@@ -6,15 +6,22 @@
 //
 // HISTORY:
 // 0.1.0    2020-04-11 initial version
-//
+// 0.3.0    2020-12-19  compatible new version
 
-#include <DHT12.h>
 
-DHT12 DHT;
+#include "DHT12.h"
+
+
+DHT12 DHT(&Wire);
 
 void setup()
 {
+  
+#if defined(ESP8266) || defined(ESP32)
   DHT.begin(12, 13);  // select your pin numbers here
+#else
+  DHT.begin();
+#endif
 
   Serial.begin(115200);
   Serial.println(__FILE__);
@@ -57,5 +64,6 @@ void loop()
 
   delay(2000);
 }
+
 
 // -- END OF FILE --

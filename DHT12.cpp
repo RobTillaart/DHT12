@@ -62,16 +62,16 @@ int8_t DHT12::read()
   if (status < 0) return status;
 
   // CONVERT AND STORE
-  _humidity    = bits[0] + bits[1] * 0.1;
-  _temperature = bits[2] + (bits[3] & 0x7F) * 0.1;
-  if (bits[3] & 0x80)
+  _humidity    = _bits[0] + _bits[1] * 0.1;
+  _temperature = _bits[2] + (_bits[3] & 0x7F) * 0.1;
+  if (_bits[3] & 0x80)
   {
     _temperature = -_temperature;
   }
 
   // TEST CHECKSUM
-  uint8_t checksum = bits[0] + bits[1] + bits[2] + bits[3];
-  if (bits[4] != checksum) return DHT12_ERROR_CHECKSUM;
+  uint8_t checksum = _bits[0] + _bits[1] + _bits[2] + _bits[3];
+  if (_bits[4] != checksum) return DHT12_ERROR_CHECKSUM;
 
   return DHT12_OK;
 }

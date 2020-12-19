@@ -11,11 +11,17 @@
 
 #include "DHT12.h"
 
+
 DHT12 DHT;
 
 void setup()
 {
+  
+#if defined(ESP8266) || defined(ESP32)
   DHT.begin(12, 13);  // select your pin numbers here
+#else
+  DHT.begin();
+#endif
 
   Serial.begin(115200);
   Serial.println(__FILE__);
@@ -58,5 +64,6 @@ void loop()
 
   delay(2000);
 }
+
 
 // -- END OF FILE --

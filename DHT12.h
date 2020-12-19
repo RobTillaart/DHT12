@@ -21,6 +21,7 @@
 class DHT12
 {
 public:
+  DHT12();
   DHT12(TwoWire *wire);        // to be tested explicitly
 
 #if defined(ESP8266) || defined(ESP32)

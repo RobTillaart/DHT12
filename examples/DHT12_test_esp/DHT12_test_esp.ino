@@ -6,13 +6,13 @@
 //
 // HISTORY:
 // 0.1.0    2020-04-11 initial version
-//
+// 0.3.0    2020-12-19  compatible new version
 
 
 #include "DHT12.h"
 
 
-DHT12 DHT;
+DHT12 DHT(&Wire);
 
 void setup()
 {

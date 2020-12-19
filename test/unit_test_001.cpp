@@ -42,7 +42,7 @@ unittest_teardown()
 
 unittest(test_constructor)
 {
-  DHT12 DHT(&Wire);
+  DHT12 DHT;
   
   fprintf(stderr, DHT12_LIB_VERSION);
 
@@ -52,7 +52,7 @@ unittest(test_constructor)
   assertEqualFloat(0, DHT.getHumOffset(), 0.001);
 
   DHT.begin();
-  assertEqual(0, DHT.read());
+  assertEqual(DHT12_ERROR_CONNECT, DHT.read());
 
   assertEqualFloat(0, DHT.getTemperature(), 0.001);
   assertEqualFloat(0, DHT.getHumidity(), 0.001);

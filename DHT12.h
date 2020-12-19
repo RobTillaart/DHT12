@@ -21,8 +21,8 @@
 class DHT12
 {
 public:
-  explicit DHT12();
-  explicit DHT12(TwoWire *wire);        // to be tested explicitly
+  DHT12();
+  DHT12(TwoWire *wire);        // to be tested explicitly
 
 #if defined(ESP8266) || defined(ESP32)
   void     begin(const uint8_t dataPin, const uint8_t clockPin);

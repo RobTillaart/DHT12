@@ -21,12 +21,6 @@
 #define DHT12_ADDRESS   ((uint8_t)0x5C)
 
 
-DHT12::DHT12()
-{
-  DHT12(Wire);
-}
-
-
 DHT12::DHT12(TwoWire *wire)
 {
   _wire        = wire;

@@ -11,7 +11,7 @@
 // Released to the public domain
 //
 
-#include <DHT12.h>
+#include "DHT12.h"
 
 DHT12 DHT;
 

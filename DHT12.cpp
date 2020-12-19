@@ -1,21 +1,23 @@
 //
 //    FILE: DHT12.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.2.0
+// VERSION: 0.3.0
 // PURPOSE: I2C library for DHT12 for Arduino.
 //
 // HISTORY:
-//   0.1.0: 2017-12-11 initial version
-//   0.1.1: 2017-12-19 added ESP8266 - issue #86
-//                     Verified by Viktor Balint
-//   0.1.2: 2018-09-02 fix negative temperature DHT12 - issue #111
-//   0.2.0  2020-04-11 explicit constructors, select other Wire interface, #pragma once
-//   0.2.1  2020-06-07 fix library.json
+//   0.1.0: 2017-12-11  initial version
+//   0.1.1: 2017-12-19  added ESP8266 - issue #86
+//                      Verified by Viktor Balint
+//   0.1.2: 2018-09-02  fix negative temperature DHT12 - issue #111
+//   0.2.0  2020-04-11  explicit constructors, select other Wire interface, #pragma once
+//   0.2.1  2020-06-07  fix library.json
+//   0.3.0  2020-12-19  add arduino-CI + unit test
+//                      temperature and humidity made private
 //
 
-#include <DHT12.h>
+#include "DHT12.h"
 
-#define DHT12_ADDRESS  ((uint8_t)0x5C)
+#define DHT12_ADDRESS   ((uint8_t)0x5C)
 
 
 DHT12::DHT12()
@@ -26,7 +28,11 @@ DHT12::DHT12()
 
 DHT12::DHT12(TwoWire *wire)
 {
-  _wire = wire;
+  _wire        = wire;
+  _temperature = 0;
+  _humidity    = 0;
+  _humOffset   = 0;
+  _tempOffset  = 0;
 }
 
 
@@ -56,19 +62,16 @@ int8_t DHT12::read()
   if (status < 0) return status;
 
   // CONVERT AND STORE
-  humidity = bits[0] + bits[1] * 0.1;
-  temperature = bits[2] + (bits[3] & 0x7F) * 0.1;
+  _humidity    = bits[0] + bits[1] * 0.1;
+  _temperature = bits[2] + (bits[3] & 0x7F) * 0.1;
   if (bits[3] & 0x80)
   {
-    temperature = -temperature;
+    _temperature = -_temperature;
   }
 
   // TEST CHECKSUM
   uint8_t checksum = bits[0] + bits[1] + bits[2] + bits[3];
-  if (bits[4] != checksum)
-  {
-    return DHT12_ERROR_CHECKSUM;
-  }
+  if (bits[4] != checksum) return DHT12_ERROR_CHECKSUM;
 
   return DHT12_OK;
 }
@@ -85,12 +88,13 @@ int DHT12::_readSensor()
   // GET DATA
   const uint8_t length = 5;
   int bytes = _wire->requestFrom(DHT12_ADDRESS, length);
-  if (bytes == 0) return DHT12_ERROR_CONNECT;
+
+  if (bytes == 0)     return DHT12_ERROR_CONNECT;
   if (bytes < length) return DHT12_MISSING_BYTES;
 
   for (int i = 0; i < bytes; i++)
   {
-    bits[i] = _wire->read();
+    _bits[i] = _wire->read();
   }
 
   return bytes;

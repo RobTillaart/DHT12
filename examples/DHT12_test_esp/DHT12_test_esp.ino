@@ -8,7 +8,8 @@
 // 0.1.0    2020-04-11 initial version
 //
 
-#include <DHT12.h>
+
+#include "DHT12.h"
 
 DHT12 DHT;
 

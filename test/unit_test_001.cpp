@@ -41,10 +41,10 @@ unittest_teardown()
 
 unittest(test_constants)
 {
-  assertEqualFloat(  0, DHT12_OK);
-  assertEqualFloat(-10, DHT12_ERROR_CHECKSUM);
-  assertEqualFloat(-11, DHT12_ERROR_CONNECT);
-  assertEqualFloat(-12, DHT12_MISSING_BYTES);
+  assertEqual(  0, DHT12_OK);
+  assertEqual(-10, DHT12_ERROR_CHECKSUM);
+  assertEqual(-11, DHT12_ERROR_CONNECT);
+  assertEqual(-12, DHT12_MISSING_BYTES);
 }
 
 

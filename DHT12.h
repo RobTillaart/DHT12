@@ -26,9 +26,9 @@ public:
   DHT12(TwoWire *wire);        // to be tested explicitly
 
 #if defined(ESP8266) || defined(ESP32)
-  void     begin(const uint8_t dataPin, const uint8_t clockPin);
+  bool     begin(const uint8_t dataPin, const uint8_t clockPin);
 #endif
-  void     begin();
+  bool     begin();
 
   bool     isConnected();
 

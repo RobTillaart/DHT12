@@ -1,7 +1,7 @@
 //
 //    FILE: DHT12.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.3.4
+// VERSION: 0.4.0
 // PURPOSE: Arduino library for I2C DHT12 temperature and humidity sensor.
 //     URL: https://github.com/RobTillaart/DHT12
 

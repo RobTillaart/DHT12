@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - simplify begin() == breaking change, see examples.
 - fix examples
 - add example for RP2040
+- fix unit tests
 - update readme.md
 
 ----
